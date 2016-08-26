@@ -22,7 +22,7 @@ Controller::Controller(PxController* controller, PhysX::ControllerManager^ owner
 	// The Actor class holds the PxActor, but should not dispose of it, as it is owned entirely
 	// by the PxController instance
 	PxRigidDynamic* actor = controller->getActor();
-	_actor = gcnew PhysX::RigidDynamic(actor, nullptr);
+	_actor = gcnew PhysX::RigidDynamic(actor, this);
 	_actor->UnmanagedOwner = false; 
 
 	// The Shape class holds the PxShape, but should not dispose of it, as it is owned entirely
